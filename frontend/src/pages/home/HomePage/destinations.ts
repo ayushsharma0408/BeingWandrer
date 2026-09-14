@@ -6,8 +6,7 @@ export const HOME_DESTINATIONS = [
     route: 'Kolkata → Mumbai',
     tag: 'City break',
     tone: 'dest-mumbai',
-    image:
-      'https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7?auto=format&fit=crop&w=1200&q=70',
+    image: '/destinations/mumbai.jpg',
   },
   {
     origin: 'DEL',
@@ -16,8 +15,7 @@ export const HOME_DESTINATIONS = [
     route: 'Delhi → Mumbai',
     tag: 'Most booked',
     tone: 'dest-delhi',
-    image:
-      'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=70',
+    image: '/destinations/delhi.jpg',
   },
   {
     origin: 'BOM',
@@ -26,8 +24,7 @@ export const HOME_DESTINATIONS = [
     route: 'Mumbai → Goa',
     tag: 'Beach escape',
     tone: 'dest-goa',
-    image:
-      'https://images.unsplash.com/photo-1512343879784-a960bf40e1f1?auto=format&fit=crop&w=1200&q=70',
+    image: '/destinations/goa.jpg',
   },
   {
     origin: 'DEL',
@@ -36,8 +33,7 @@ export const HOME_DESTINATIONS = [
     route: 'Delhi → Dubai',
     tag: 'International',
     tone: 'dest-dubai',
-    image:
-      'https://images.unsplash.com/photo-1512453979798-5ebe8093f97b?auto=format&fit=crop&w=1200&q=70',
+    image: '/destinations/dubai.jpg',
   },
 ] as const;
 

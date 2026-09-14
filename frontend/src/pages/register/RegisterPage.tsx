@@ -5,7 +5,7 @@ export const RegisterPage = (): JSX.Element => {
   return (
     <section className="auth-split">
       <div className="auth-side">
-        <p className="hero-kicker">Join Best in Flights</p>
+        <p className="hero-kicker">Join BeingWandrer</p>
         <h2>Create an account and book live fares in minutes.</h2>
         <p>Optional — you can still book as a guest without an account.</p>
       </div>

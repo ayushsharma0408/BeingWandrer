@@ -18,6 +18,9 @@ export const DealsPage = (): JSX.Element => {
             <Link
               key={route.label}
               className={`dest-card ${route.tone}`}
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgb(8 18 38 / 0.05) 20%, rgb(8 18 38 / 0.78) 100%), url(${route.image})`,
+              }}
               to={`/flights?origin=${route.origin}&destination=${route.destination}&departureDate=${tomorrow()}&adults=1&children=0&infants=0&travelClass=Economy&flightMode=OneWay`}
             >
               <strong>{route.label}</strong>

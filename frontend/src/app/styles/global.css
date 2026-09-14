@@ -1,23 +1,27 @@
 :root {
-  --app-color-bg: #f3f4f6;
+  --app-color-bg: #fbf6e9;
   --app-color-surface: #ffffff;
-  --app-color-fg: #111827;
-  --app-color-muted: #6b7280;
-  --app-color-primary: #0370f8;
-  --app-color-primary-hover: #0259d4;
+  --app-color-fg: #5b5b54;
+  --app-color-heading: #0f3457;
+  --app-color-muted: #5b5b54;
+  --app-color-primary: #1b4d7a;
+  --app-color-primary-hover: #0f3457;
   --app-color-primary-fg: #ffffff;
-  --app-color-primary-rgb: 3 112 248;
-  --app-color-accent: #f5b400;
-  --app-color-accent-hover: #e0a400;
-  --app-color-danger: #c62828;
-  --app-color-success: #059669;
-  --app-color-border: #e5e7eb;
-  --app-color-header: #ffffff;
-  --app-color-hero-from: #023a9c;
-  --app-color-hero-to: #0370f8;
-  --app-color-logo-bg: #071833;
-  --app-color-sky: #eaf3ff;
+  --app-color-primary-rgb: 27 77 122;
+  --app-color-accent: #c9971e;
+  --app-color-accent-hover: #e8cd7f;
+  --app-color-accent-fg: #0f3457;
+  --app-color-light-gold: #e8cd7f;
+  --app-color-danger: #c0392b;
+  --app-color-success: #2e7d5b;
+  --app-color-border: #e6dfd0;
+  --app-color-header: #1b4d7a;
+  --app-color-hero-from: #0f3457;
+  --app-color-hero-to: #1b4d7a;
+  --app-color-logo-bg: transparent;
+  --app-color-sky: #fbf6e9;
   --app-color-bar: #ffffff;
+  --app-color-footer: #0f3457;
   --app-space-1: 0.25rem;
   --app-space-2: 0.5rem;
   --app-space-3: 0.75rem;
@@ -73,9 +77,11 @@ a:hover {
 h1,
 h2,
 h3,
-.display {
+.display,
+.section-title {
   font-family: var(--app-font-display);
   letter-spacing: -0.02em;
+  color: var(--app-color-heading);
 }
 
 .wrap {
@@ -202,7 +208,7 @@ button.header-link {
 
 .btn-accent {
   background: var(--app-color-accent);
-  color: #111;
+  color: var(--app-color-accent-fg);
   min-height: 3.4rem;
   padding-inline: 1.6rem;
   font-size: 1.02rem;
@@ -287,7 +293,7 @@ button.header-link {
   color: #fff;
   background:
     radial-gradient(circle at 80% 10%, rgb(255 255 255 / 0.18), transparent 28%),
-    linear-gradient(120deg, var(--app-color-hero-from), var(--app-color-hero-to) 58%, #4ec2ff);
+    linear-gradient(120deg, var(--app-color-hero-from), var(--app-color-hero-to) 58%, #2a5f8f);
   padding: 4.5rem 0 7rem;
 }
 
@@ -323,6 +329,7 @@ button.header-link {
   margin: 0 0 0.75rem;
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   line-height: 1.05;
+  color: #fff;
 }
 
 .hero p {
@@ -649,7 +656,7 @@ button.header-link {
 }
 
 .tv-how {
-  background: linear-gradient(180deg, #f8fbff, transparent);
+  background: linear-gradient(180deg, var(--app-color-bg), transparent);
 }
 
 .tv-how-grid {
@@ -706,11 +713,11 @@ button.header-link {
   gap: 1.5rem;
   padding: 1.6rem 1.8rem;
   border-radius: 1.25rem;
-  color: #111;
+  color: var(--app-color-accent-fg);
   background:
     radial-gradient(circle at 88% 20%, rgb(255 255 255 / 0.45), transparent 28%),
-    linear-gradient(120deg, #f7c948, #f5b400 55%, #ffd978);
-  box-shadow: 0 16px 40px rgb(245 180 0 / 0.28);
+    linear-gradient(120deg, var(--app-color-light-gold), var(--app-color-accent) 55%, #d4ae45);
+  box-shadow: 0 16px 40px rgb(201 151 30 / 0.28);
   overflow: hidden;
 }
 
@@ -725,7 +732,7 @@ button.header-link {
 }
 
 .tv-banner .tv-eyebrow {
-  color: #7a4d00;
+  color: var(--app-color-accent-fg);
 }
 
 .tv-banner-cta {
@@ -735,7 +742,7 @@ button.header-link {
   flex-shrink: 0;
   padding: 0.85rem 1.25rem;
   border-radius: 999px;
-  background: #111;
+  background: var(--app-color-primary);
   color: #fff;
   font-weight: 800;
   text-decoration: none;
@@ -743,7 +750,7 @@ button.header-link {
 }
 
 .tv-banner-cta:hover {
-  background: #222;
+  background: var(--app-color-primary-hover);
   transform: translateY(-2px);
   text-decoration: none;
 }
@@ -948,10 +955,11 @@ button.header-link {
 
 .auth-side h2 {
   font-size: 2.2rem;
+  color: #fff;
 }
 
 .site-footer {
-  background: #111827;
+  background: var(--app-color-footer);
   color: rgb(255 255 255 / 0.78);
   padding: 3rem 0 1.5rem;
 }
@@ -1099,7 +1107,7 @@ button.header-link {
   top: 50%;
   height: 3px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #93c5fd, var(--app-color-primary), #93c5fd);
+  background: linear-gradient(90deg, #a8c4db, var(--app-color-primary), #a8c4db);
   background-size: 200% 100%;
   animation: shimmer 1.4s linear infinite;
   transform: translateY(-50%);
@@ -1156,7 +1164,7 @@ button.header-link {
   width: 38%;
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--app-color-primary), #60a5fa);
+  background: linear-gradient(90deg, var(--app-color-primary), #3d6f9c);
   animation: searchBar 1.25s ease-in-out infinite;
 }
 
@@ -1267,7 +1275,7 @@ button.header-link {
 }
 
 .checkout-page {
-  background: #e9f3fb;
+  background: var(--app-color-bg);
 }
 
 .checkout-steps {
@@ -1368,8 +1376,8 @@ button.header-link {
 }
 
 .choice-box.is-selected {
-  border-color: var(--app-color-primary);
-  background: #f3f8ff;
+  border-color: var(--app-color-light-gold);
+  background: rgb(232 205 127 / 0.18);
 }
 
 .protection-head {
@@ -1382,7 +1390,7 @@ button.header-link {
 .protection-banner {
   margin: 0;
   padding: 0.85rem 1rem;
-  background: #dff5ff;
+  background: rgb(232 205 127 / 0.28);
   border-radius: 0.7rem;
 }
 
@@ -1432,8 +1440,8 @@ button.header-link {
 }
 
 .sort-tabs button.is-active {
-  border-color: var(--app-color-primary);
-  background: #f3f8ff;
+  border-color: var(--app-color-light-gold);
+  background: rgb(232 205 127 / 0.18);
 }
 
 .sort-tabs span {
@@ -1572,13 +1580,13 @@ button.header-link {
 }
 
 .eticket-status-ok {
-  background: #d1fae5;
-  color: #047857;
+  background: rgb(46 125 91 / 0.14);
+  color: var(--app-color-success);
 }
 
 .eticket-status-cancel {
-  background: #fee2e2;
-  color: #b91c1c;
+  background: rgb(192 57 43 / 0.12);
+  color: var(--app-color-danger);
 }
 
 .eticket-coupon {
@@ -2050,8 +2058,8 @@ button.header-link {
   top: 0;
   z-index: 40;
   background: var(--app-color-header);
-  border-bottom: 1px solid var(--app-color-border);
-  box-shadow: 0 1px 0 rgb(15 23 42 / 0.03), 0 10px 24px rgb(15 23 42 / 0.04);
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  box-shadow: 0 1px 0 rgb(15 52 87 / 0.08), 0 10px 24px rgb(15 52 87 / 0.18);
 }
 
 .tv-header-inner {
@@ -2088,6 +2096,7 @@ button.header-link {
   display: block;
   width: auto;
   height: 2.45rem;
+  object-fit: contain;
 }
 
 .tv-logo-on-dark {
@@ -2118,7 +2127,7 @@ button.header-link {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #4b5563;
+  color: rgb(255 255 255 / 0.88);
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
@@ -2129,14 +2138,14 @@ button.header-link {
 .tv-nav a:hover,
 .tv-nav-drawer a:hover {
   text-decoration: none;
-  color: var(--app-color-fg);
-  background: #f3f6fb;
+  color: #fff;
+  background: rgb(255 255 255 / 0.12);
 }
 
 .tv-nav a.is-active,
 .tv-nav-drawer a.is-active {
-  color: var(--app-color-primary);
-  background: rgb(var(--app-color-primary-rgb) / 0.08);
+  color: var(--app-color-accent-fg);
+  background: var(--app-color-accent);
   font-weight: 700;
 }
 
@@ -2144,7 +2153,7 @@ button.header-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #374151;
+  color: #fff;
   font-weight: 600;
   flex-shrink: 0;
 }
@@ -2153,7 +2162,7 @@ button.header-link {
   width: 1px;
   height: 1.35rem;
   margin: 0 0.2rem;
-  background: var(--app-color-border);
+  background: rgb(255 255 255 / 0.28);
 }
 
 .tv-utils-meta {
@@ -2179,10 +2188,10 @@ button.header-link {
   gap: 0.35rem;
   height: 2.15rem;
   padding: 0 0.55rem 0 0.5rem;
-  border: 1px solid var(--app-color-border);
+  border: 1px solid rgb(255 255 255 / 0.28);
   border-radius: 0.5rem;
-  background: #fff;
-  color: var(--app-color-fg);
+  background: rgb(255 255 255 / 0.12);
+  color: #fff;
   font: inherit;
   font-size: 0.8rem;
   font-weight: 700;
@@ -2192,12 +2201,12 @@ button.header-link {
 
 .tv-pref-btn:hover,
 .tv-pref-btn[aria-expanded='true'] {
-  border-color: #c5d4e8;
-  background: #f8fafc;
+  border-color: rgb(255 255 255 / 0.45);
+  background: rgb(255 255 255 / 0.2);
 }
 
 .tv-pref-btn .tv-icon {
-  color: var(--app-color-muted);
+  color: rgb(255 255 255 / 0.75);
 }
 
 .tv-flag {
@@ -2267,10 +2276,10 @@ button.header-link {
   gap: 0.4rem;
   height: 2.15rem;
   padding: 0 0.9rem;
-  border: 1px solid var(--app-color-border);
+  border: 1px solid rgb(255 255 255 / 0.3);
   border-radius: 0.5rem;
-  background: #fff;
-  color: var(--app-color-fg);
+  background: rgb(255 255 255 / 0.12);
+  color: #fff;
   font: inherit;
   font-size: 0.86rem;
   font-weight: 700;
@@ -2278,19 +2287,19 @@ button.header-link {
 }
 
 .tv-signin.is-primary {
-  border-color: var(--app-color-primary);
-  background: var(--app-color-primary);
-  color: var(--app-color-primary-fg);
-  box-shadow: 0 6px 14px rgb(var(--app-color-primary-rgb) / 0.22);
+  border-color: var(--app-color-accent);
+  background: var(--app-color-accent);
+  color: var(--app-color-accent-fg);
+  box-shadow: 0 6px 14px rgb(201 151 30 / 0.28);
 }
 
 .tv-signin:hover {
-  background: #f8fafc;
+  background: rgb(255 255 255 / 0.2);
 }
 
 .tv-signin.is-primary:hover {
-  background: var(--app-color-primary-hover);
-  border-color: var(--app-color-primary-hover);
+  background: var(--app-color-accent-hover);
+  border-color: var(--app-color-accent-hover);
 }
 
 .tv-menu-btn {
@@ -2298,9 +2307,10 @@ button.header-link {
   place-items: center;
   width: 2.4rem;
   height: 2.4rem;
-  border: 1px solid var(--app-color-border);
+  border: 1px solid rgb(255 255 255 / 0.3);
   border-radius: 0.55rem;
-  background: #fff;
+  background: rgb(255 255 255 / 0.12);
+  color: #fff;
   font-size: 1.15rem;
   cursor: pointer;
 }
@@ -2310,7 +2320,7 @@ button.header-link {
   flex-direction: column;
   gap: 0.85rem;
   padding: 0.25rem 0 1rem;
-  border-top: 1px solid var(--app-color-border);
+  border-top: 1px solid rgb(255 255 255 / 0.15);
 }
 
 .tv-nav-drawer-links {
@@ -2331,7 +2341,7 @@ button.header-link {
   overflow: visible;
   background:
     radial-gradient(circle at 18% 18%, rgb(255 255 255 / 0.16), transparent 28%),
-    linear-gradient(165deg, var(--app-color-hero-from) 0%, var(--app-color-hero-to) 52%, #4ea3ff 100%);
+    linear-gradient(165deg, var(--app-color-hero-from) 0%, var(--app-color-hero-to) 52%, #2a5f8f 100%);
   color: #fff;
   padding: 3.4rem 0 4.6rem;
   text-align: center;
@@ -2412,6 +2422,7 @@ button.header-link {
   font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  color: #fff;
   animation: fadeUp 0.65s ease 0.05s both;
 }
 
@@ -2481,7 +2492,7 @@ button.header-link {
 .tv-cats a.is-active,
 .tv-cats span.is-active {
   background: var(--app-color-accent);
-  color: #111;
+  color: var(--app-color-accent-fg);
 }
 
 .tv-search-wrap {
@@ -2884,14 +2895,18 @@ button.header-link {
   padding: 0 1.8rem;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(90deg, #f7c948, #f5b400);
-  color: #111;
+  background: var(--app-color-primary);
+  color: var(--app-color-primary-fg);
   font: inherit;
   font-weight: 800;
   font-size: 1.05rem;
-  box-shadow: 0 10px 24px rgb(245 180 0 / 0.45);
+  box-shadow: 0 10px 24px rgb(var(--app-color-primary-rgb) / 0.35);
   transform: translate(-50%, 50%);
   cursor: pointer;
+}
+
+.tv-search-cta:hover {
+  background: var(--app-color-primary-hover);
 }
 
 .tv-search-cta span {
@@ -2900,8 +2915,8 @@ button.header-link {
   width: 1.7rem;
   height: 1.7rem;
   border-radius: 999px;
-  background: #111;
-  color: #fff;
+  background: var(--app-color-accent);
+  color: var(--app-color-accent-fg);
   font-size: 0.8rem;
 }
 
@@ -2924,7 +2939,7 @@ button.header-link {
 }
 
 .tv-results {
-  background: #f3f4f6;
+  background: var(--app-color-bg);
   padding-bottom: 3rem;
 }
 
@@ -3133,8 +3148,8 @@ button.header-link {
 }
 
 .tv-sort button.is-active {
-  border-bottom-color: var(--app-color-primary);
-  background: #f8fbff;
+  border-bottom-color: var(--app-color-accent);
+  background: rgb(232 205 127 / 0.2);
 }
 
 .tv-sort span {
@@ -3165,9 +3180,9 @@ button.header-link {
   font-weight: 800;
 }
 
-.tv-chip-green { background: #d1fae5; color: #047857; }
-.tv-chip-blue { background: #dbeafe; color: #1d4ed8; }
-.tv-chip-orange { background: #ffedd5; color: #c2410c; }
+.tv-chip-green { background: rgb(46 125 91 / 0.14); color: var(--app-color-success); }
+.tv-chip-blue { background: rgb(201 151 30 / 0.18); color: #8a6810; }
+.tv-chip-orange { background: rgb(232 205 127 / 0.35); color: var(--app-color-accent-fg); }
 
 .tv-offer-body {
   display: grid;
@@ -3280,8 +3295,8 @@ button.header-link {
   margin-top: 0.55rem;
   border: 0;
   border-radius: 0.55rem;
-  background: var(--app-color-accent);
-  color: #111;
+  background: var(--app-color-primary);
+  color: var(--app-color-primary-fg);
   font: inherit;
   font-weight: 800;
   padding: 0.55rem 0.9rem;
@@ -3291,6 +3306,7 @@ button.header-link {
 
 .tv-book:hover {
   text-decoration: none;
+  background: var(--app-color-primary-hover);
 }
 
 .tv-deals {
@@ -3440,7 +3456,7 @@ button.header-link {
   align-items: center;
   padding: 0.85rem 1rem;
   border-radius: 0.7rem;
-  background: #f3f8ff;
+  background: rgb(232 205 127 / 0.22);
   font-size: 1.05rem;
 }
 
@@ -3648,7 +3664,7 @@ button.header-link {
   place-items: center;
   min-height: 28rem;
   padding: 3rem 1rem;
-  background: linear-gradient(180deg, var(--app-color-sky), #f3f4f6);
+  background: linear-gradient(180deg, var(--app-color-sky), var(--app-color-bg));
   text-align: center;
 }
 

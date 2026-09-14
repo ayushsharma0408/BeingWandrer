@@ -35,7 +35,7 @@ export const AppFooter = (): JSX.Element => {
             <p>{t('footer.refresh')}</p>
           </div>
         </div>
-        <p className="footer-note">© {new Date().getFullYear()} Best in Flights Booking.</p>
+        <p className="footer-note">© {new Date().getFullYear()} BeingWandrer.</p>
       </div>
     </footer>
   );

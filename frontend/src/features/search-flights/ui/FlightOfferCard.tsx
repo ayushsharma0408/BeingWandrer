@@ -83,7 +83,7 @@ export const FlightOfferCard = ({ offer, badges = [] }: FlightOfferCardProps): J
       </div>
       {openDeals ? (
         <div className="tv-deal-row">
-          <span className="tv-tile-wordmark">BEST IN FLIGHTS</span>
+          <span className="tv-tile-wordmark">BEINGWANDRER</span>
           <span className="tv-price">{formatMoney(offer.currency, offer.grandTotal)} /Person</span>
           <Link to={`/book/${offer.offerId}`} className="tv-book">
             Book
