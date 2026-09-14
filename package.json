@@ -1,0 +1,23 @@
+{
+  "name": "best-in-flights-booking",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A flight booking portal that shows realtime prices and lets users search and book flights.",
+  "workspaces": [
+    "backend",
+    "frontend",
+    "shared-core"
+  ],
+  "scripts": {
+    "dev": "npm run build -w shared-core && concurrently -n core,api,web -c cyan,green,magenta \"npm run dev -w shared-core\" \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w shared-core && npm run build -w backend && npm run build -w frontend",
+    "typecheck": "npm run build -w shared-core && npm run typecheck -w backend && npm run typecheck -w frontend",
+    "test": "npm run test -w backend"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

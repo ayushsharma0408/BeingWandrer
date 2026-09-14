@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import './global.css';
+
+@theme {
+  --color-primary: var(--app-color-primary);
+  --color-fg: var(--app-color-fg);
+  --color-muted: var(--app-color-muted);
+  --color-surface: var(--app-color-surface);
+  --color-header: var(--app-color-header);
+}

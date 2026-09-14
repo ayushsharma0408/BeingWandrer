@@ -1,0 +1,17 @@
+process.env.NODE_ENV = 'test';
+process.env.PORT = '4000';
+process.env.LOG_LEVEL = 'silent';
+process.env.DATABASE_URL = 'mongodb://127.0.0.1:27017/best-in-flights-booking-test';
+process.env.JWT_SECRET = 'test-jwt-secret-key-must-be-long';
+process.env.JWT_ACCESS_EXPIRY = '15m';
+process.env.JWT_REFRESH_EXPIRY = '7d';
+process.env.FRONTEND_URL = 'http://localhost:5173';
+process.env.COOKIE_SECURE = 'false';
+process.env.ADMIN_EMAIL = 'admin@example.com';
+process.env.ADMIN_PASSWORD = 'test-admin-password';
+process.env.TRAVINUS_BASE_URL = 'https://api.travinus.com';
+process.env.TRAVINUS_PARTNER_ID = '4';
+process.env.TRAVINUS_CLIENT_ID = 'test-client-id';
+process.env.TRAVINUS_CLIENT_SECRET = 'test-client-secret';
+process.env.TRAVINUS_USE_MOCK = 'true';
+process.env.TRAVINUS_TIMEOUT_MS = '5000';

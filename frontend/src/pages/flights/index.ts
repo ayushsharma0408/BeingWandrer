@@ -1,0 +1,1 @@
+export { FlightsPage } from './FlightsPage';

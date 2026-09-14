@@ -1,0 +1,149 @@
+# Project: Best in Flights Booking
+# Stack: React+Vite · Node+Express · MongoDB
+# Architecture: FSD frontend · Modular monolith backend · Redux Toolkit · global.css design system
+# Docs: @docs/README.md · @docs/01-requirements · @docs/02-architecture · @docs/03-database · @docs/04-api · @docs/05-project-structure
+
+You are an expert software engineer. Follow these rules on every file you generate.
+
+---
+
+## MANDATORY: ASK BEFORE YOU BUILD
+
+When the user says "setup project", "start development", or references these docs:
+
+**STOP. Do not write production code until you have asked and received answers for:**
+
+1. **Project name** and one-line description
+2. **Business domain** and primary users
+3. **User roles** and permission model
+4. **Core modules / features** for v1
+5. **Tech stack confirmations** (or approval of defaults in architecture doc):
+   - Frontend framework (if any)
+   - Backend framework (if any)
+   - Database engine
+   - Auth method
+6. **Timeline / scale** (SMALL / MEDIUM / LARGE — see docs/README.md)
+7. **External integrations** (payments, email, storage, etc.)
+
+**After answers:**
+1. Fill all `[PLACEHOLDER]` values in the docs under `docs/`
+2. Present a short **architecture summary** for user approval
+3. Only after explicit approval → scaffold folder structure → implement core modules
+
+**Never hardcode a product name, domain entity, or schema from a different project.**
+
+---
+
+## ALWAYS
+
+### Documentation first
+- Read all `docs/` templates before scaffolding
+- Update docs when code changes — docs are the source of truth
+- Replace placeholders in docs when starting a real project
+
+### Architecture
+- Import from a slice's `index.ts` only — never internal paths
+- FSD: import only from layers below (features → entities → shared)
+- Use eventBus for cross-module communication — never direct feature imports
+- Backend: controllers thin; logic in services; DB access in services only
+
+### API and data
+- Use shared `apiClient` for ALL HTTP — never raw fetch/axios in components
+- Standard response envelope:
+  - Success: `{ success: true, message: "", data: {} }`
+  - Error: `{ success: false, message: "", error: { code, message, field? } }`
+- Validate all user input with Zod (or chosen schema lib) before API calls
+- Paginate all list endpoints
+
+### Forms (when UI exists)
+- React Hook Form + schema resolver
+- Inline field errors — never `alert()`
+- Submit button disabled + loading state while submitting
+
+### TypeScript
+- Strict mode — no implicit `any`
+- API types must match `docs/04-api/api-planning.md`
+- Explicit return types on exported functions/components
+
+### Code quality
+- Module logger — no `console.log` in committed code
+- Constants for error codes, routes, roles — no magic strings
+- At least one test per backend endpoint (happy path + auth rejection)
+
+---
+
+## NEVER
+
+### Architecture
+- NEVER import feature slice from another feature slice
+- NEVER put business logic in UI components
+- NEVER put API calls directly in React components
+- NEVER query database from controllers
+
+### Security
+- NEVER store access tokens in localStorage/sessionStorage
+- NEVER return password hashes or secrets in API responses
+- NEVER log passwords, tokens, or PII
+- NEVER skip auth/role middleware on protected endpoints
+- NEVER trust client-provided role or userId — use verified JWT/session
+
+### Data and state
+- NEVER put server state in Redux (use TanStack Query)
+- NEVER put form state in global store (use React Hook Form)
+- NEVER store access tokens in localStorage/sessionStorage (in-memory only)
+- Redux slices live in `entities/[entity]/model/`; store wiring in `app/store/`
+- Use `useAppDispatch` / `useAppSelector` from `shared/store` only
+
+### Styling
+- NEVER hardcode colors/spacing in components when a `global.css` token or class exists
+- All design tokens and component classes live in `app/styles/global.css`
+- Tailwind utilities allowed; prefer global classes (`.btn`, `.card`, `.field`) for consistency
+
+---
+
+## Naming conventions
+
+- Folders: kebab-case
+- Components: PascalCase.tsx
+- Hooks: camelCase with `use` prefix
+- Constants: SCREAMING_SNAKE
+- DB fields: camelCase
+- Enum values: SCREAMING_SNAKE
+
+---
+
+## Default stack (use only if user approves)
+
+When user has no preference, **propose** (do not silently apply):
+
+| Layer | Default proposal |
+|---|---|
+| Frontend | React + Vite + TypeScript + FSD |
+| Backend | Node + Express + TypeScript + modular monolith |
+| Database | MongoDB or PostgreSQL (ask which fits domain) |
+| Auth | JWT access (memory) + httpOnly refresh cookie |
+| State | TanStack Query + Redux Toolkit + React Hook Form |
+| Styling | Tailwind CSS v4 + `app/styles/global.css` design system |
+
+User must confirm before scaffolding.
+
+---
+
+## Cursor prompt patterns (for users)
+
+**New project setup:**
+```
+@docs/README.md Setup my project architecture per these global templates.
+Ask me all required questions before writing code.
+```
+
+**Build a module (after docs filled):**
+```
+@docs/03-database @docs/04-api @docs/05-project-structure
+Build the [module] module following .cursorrules.
+```
+
+**Review:**
+```
+Review [module] against @docs/04-api and .cursorrules. List mismatches.
+```
