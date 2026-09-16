@@ -9,7 +9,11 @@ export const registerUserApi = (body: {
   return apiClient<AuthTokenPayload>('/api/v1/auth/register', { method: 'POST', body });
 };
 
-export const loginUserApi = (body: { email: string; password: string }): Promise<AuthTokenPayload> => {
+export const loginUserApi = (body: {
+  email: string;
+  password: string;
+  portal?: 'admin' | 'consumer';
+}): Promise<AuthTokenPayload> => {
   return apiClient<AuthTokenPayload>('/api/v1/auth/login', { method: 'POST', body });
 };
 

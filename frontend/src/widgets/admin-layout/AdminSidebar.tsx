@@ -10,7 +10,7 @@ export const AdminSidebar = ({ open, onClose }: AdminSidebarProps): JSX.Element 
   return (
     <aside className={open ? 'admin-sidebar is-open' : 'admin-sidebar'}>
       <NavLink to="/admin" className="admin-brand" onClick={onClose}>
-        <img src="/brand/best-in-flights-logo.png" alt="Best in Flights" width={160} height={34} />
+        <img src="/brand/beingwandrer-logo-cropped.png" alt="BeingWandrer" width={160} height={34} />
         <span>Admin</span>
       </NavLink>
       <nav>

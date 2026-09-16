@@ -3,7 +3,19 @@ import type { CardBrand } from './card.js';
 export type FlightMode = 'OneWay' | 'Return';
 export type TravelClass = 'Economy' | 'PremiumEconomy' | 'Business' | 'First';
 export type PassengerType = 'ADULT' | 'CHILD' | 'INFANT';
-export type BookingStatus = 'PENDING' | 'CONFIRMED' | 'CANCELLED';
+export const BOOKING_STATUSES = {
+  PENDING: 'PENDING',
+  UNASSIGNED: 'UNASSIGNED',
+  ASSIGNED: 'ASSIGNED',
+  PROCESSING: 'PROCESSING',
+  FOLLOW_UP: 'FOLLOW_UP',
+  CONFIRMED: 'CONFIRMED',
+  CANCELLED: 'CANCELLED',
+  FAILED: 'FAILED',
+  CHARGEBACK: 'CHARGEBACK',
+} as const;
+
+export type BookingStatus = (typeof BOOKING_STATUSES)[keyof typeof BOOKING_STATUSES];
 
 export interface FlightEndpoint {
   iataCode: string;

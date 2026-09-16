@@ -4,7 +4,7 @@ import { clearAccessToken } from '@shared/auth';
 import { eventBus } from '@shared/kernel';
 import { useAppDispatch } from '@shared/store';
 
-export const useLogout = (): (() => Promise<void>) => {
+export const useLogout = (redirectTo = '/'): (() => Promise<void>) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ export const useLogout = (): (() => Promise<void>) => {
       clearAccessToken();
       dispatch(clearUser());
       eventBus.emit('auth:logout');
-      navigate('/');
+      navigate(redirectTo);
     }
   };
 };

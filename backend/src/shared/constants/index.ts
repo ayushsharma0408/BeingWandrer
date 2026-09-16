@@ -23,6 +23,10 @@ export const PRICE_ALERT_ROUTES = {
   ROOT: '/price-alerts',
 } as const;
 
+export const ADMIN_ROUTES = {
+  ROOT: '/admin',
+} as const;
+
 export const COOKIE = {
   REFRESH_TOKEN: 'refreshToken',
   PATH: '/api/v1/auth',
@@ -33,3 +37,4 @@ export const BCRYPT_ROUNDS_TEST = 4;
 
 export const ACCESS_TOKEN_EXPIRY = '15m';
 export const REFRESH_TOKEN_EXPIRY_MS = 7 * 24 * 60 * 60 * 1000;
+export const VISIT_THROTTLE_MS = 30 * 60 * 1000;

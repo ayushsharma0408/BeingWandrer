@@ -1,7 +1,7 @@
 import crypto from 'node:crypto';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { ERROR_CODES, USER_ROLES, type AuthUser } from '@best-in-flights-booking/shared-core';
+import { ERROR_CODES, USER_ROLES, isStaffRole, type AuthUser } from '@best-in-flights-booking/shared-core';
 import { isDatabaseConnected, requireDatabase } from '../../config/database.js';
 import { getEnv } from '../../config/env.js';
 import {
@@ -89,7 +89,11 @@ export const registerUser = async (input: {
   return { user: toAuthUser(user), token, refreshToken };
 };
 
-export const loginUser = async (input: { email: string; password: string }): Promise<AuthSession> => {
+export const loginUser = async (input: {
+  email: string;
+  password: string;
+  portal?: 'admin' | 'consumer';
+}): Promise<AuthSession> => {
   requireDatabase();
   const user = await UserModel.findOne({ email: input.email }).select('+passwordHash');
   if (!user || !user.isActive) {
@@ -99,6 +103,10 @@ export const loginUser = async (input: { email: string; password: string }): Pro
   const matches = await bcrypt.compare(input.password, user.passwordHash);
   if (!matches) {
     throw new AppError(401, ERROR_CODES.INVALID_CREDENTIALS, 'Invalid email or password');
+  }
+
+  if (input.portal === 'admin' && !isStaffRole(user.role)) {
+    throw new AppError(403, ERROR_CODES.FORBIDDEN, 'Staff credentials are required for the admin portal');
   }
 
   const token = signAccessToken(user);

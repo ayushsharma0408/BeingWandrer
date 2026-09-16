@@ -15,6 +15,7 @@ export const loginSchema = z.object({
   body: z.object({
     email: emailField,
     password: z.string().min(1),
+    portal: z.enum(['admin', 'consumer']).optional(),
   }),
 });
 

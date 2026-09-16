@@ -7,10 +7,15 @@ import { LoginSubmitButton } from './LoginForm/LoginSubmitButton';
 
 interface LoginFormProps {
   onAuthenticated?: () => void;
+  portal?: 'admin' | 'consumer';
 }
 
-export const LoginForm = ({ onAuthenticated }: LoginFormProps): JSX.Element => {
-  const { submit, isSubmitting, formError } = useLogin(onAuthenticated ? { onAuthenticated } : undefined);
+export const LoginForm = ({ onAuthenticated, portal = 'consumer' }: LoginFormProps): JSX.Element => {
+  const loginOptions = {
+    portal,
+    ...(onAuthenticated ? { onAuthenticated } : {}),
+  };
+  const { submit, isSubmitting, formError } = useLogin(loginOptions);
   const {
     register,
     handleSubmit,
